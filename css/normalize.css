@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    line-height: 1.15;
+    /* 1 */
+}
+
+h1 {
+    font-size: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+.stop {
+    clear: both;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+br {
+    margin-bottom: 10px;
+}
