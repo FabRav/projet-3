@@ -3,7 +3,7 @@
 
 header {
     @extend %grid-center;
-    grid-template-columns: 1fr;
+    @include grid-template-set($header);
     padding: 1em;
 
     & h1 {

@@ -15,14 +15,21 @@
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
 }
 
-main .presentation, main .localisation, header {
+.list-item {
+  padding: 1.5em 1em;
+  text-align: left;
+  border-radius: 1em;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+main .lesRestaurants, main .commentCaMarche, main .presentation, main .localisation, header {
   display: grid;
   align-items: center;
   justify-items: center;
 }
 
 header {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
   padding: 1em;
 }
 header h1 {
@@ -33,6 +40,7 @@ main {
   font-family: "Roboto", sans-serif;
 }
 main .localisation {
+  grid-template-columns: repeat(1, 1fr);
   grid-template-columns: 1fr;
   padding: 1em;
   background: #e2e2e2;
@@ -42,7 +50,7 @@ main .localisation i {
   padding: 0 0.5em 0 0;
 }
 main .presentation {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
   padding: 2em 0 3em;
   background: #f6f6f6;
   text-align: center;
@@ -53,13 +61,93 @@ main .presentation h2 {
 main .presentation p {
   padding: 1em 5em 2em;
 }
-main .commentCaMarche h2 {
-  padding: 1.5em 1em 1em 1em;
+main .commentCaMarche {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
 }
-main .commentCaMarche .list-item {
-  padding: 2em;
-  margin: 1em;
-  border-radius: 20px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
-  font-weight: 600;
+main .commentCaMarche h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+main .commentCaMarche ol {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2em;
+  margin: 1em 1em 0;
+  justify-self: normal;
+  counter-reset: michel;
+}
+main .commentCaMarche ol li p {
+  display: inline-block;
+  position: relative;
+  left: -0.7em;
+}
+main .commentCaMarche ol li p i {
+  padding: 0 1em 0 0;
+}
+main .commentCaMarche ol li:hover {
+  background-color: #f2eafb;
+}
+main .commentCaMarche ol li:hover i {
+  color: #9356DC;
+}
+main .commentCaMarche ol li::before {
+  counter-increment: michel;
+  content: counter(michel);
+  position: relative;
+  left: -1.9em;
+  padding: 0.3em 0.6em;
+  border-radius: 70%;
+  background-color: #9356DC;
+  color: #ffffff;
+}
+main .lesRestaurants {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 3em 1em;
+  background: #f6f6f6;
+}
+main .lesRestaurants h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 2;
+  justify-self: start;
+}
+main .lesRestaurants ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2em;
+  justify-self: normal;
+  margin: 1em 0;
+}
+main .lesRestaurants ul li {
+  width: 100%;
+  display: inline-block;
+}
+main .lesRestaurants ul li a {
+  display: block;
+  position: relative;
+  padding: 0 0 0.7rem 0;
+  color: #000000;
+  border-radius: 1.5em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+main .lesRestaurants ul li a .sticker {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  padding: 0.4em 0.6em;
+  color: #008766;
+  background: #99e2d0;
+  border-radius: 0.2em;
+}
+main .lesRestaurants ul li a img {
+  padding: 0 0 0.5rem 0;
+  width: 100%;
+  height: 12.5em;
+  object-fit: cover;
+  border-radius: 1.5em 1.5em 0 0;
 }
