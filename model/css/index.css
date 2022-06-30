@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
+.btn {
+  padding: 1em 1.5em;
+  color: #ffffff;
+  transition: 250ms;
+}
+.btn--gradient {
+  background-image: radial-gradient(100% 50% at 20% 10%, #9356DC 0%, #FF79DA 200%);
+}
+.btn--radius {
+  border-radius: 2em;
+}
+.btn:hover {
+  opacity: 0.8;
+  box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
+}
+
+main .presentation, main .localisation, header {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+header {
+  grid-template-columns: 1fr;
+  padding: 1em;
+}
+header h1 {
+  font-family: "Shrikhand", cursive;
+}
+
+main {
+  font-family: "Roboto", sans-serif;
+}
+main .localisation {
+  grid-template-columns: 1fr;
+  padding: 1em;
+  background: #e2e2e2;
+  background: linear-gradient(180deg, rgba(173, 173, 173, 0.35) 0%, rgba(234, 234, 234, 0.75) 15%, rgb(234, 234, 234) 100%);
+}
+main .localisation i {
+  padding: 0 0.5em 0 0;
+}
+main .presentation {
+  grid-template-columns: 1fr;
+  padding: 2em 0 3em;
+  background: #f6f6f6;
+  text-align: center;
+}
+main .presentation h2 {
+  padding: 0 5em;
+}
+main .presentation p {
+  padding: 1em 5em 2em;
+}
+main .commentCaMarche h2 {
+  padding: 1.5em 1em 1em 1em;
+}
+main .commentCaMarche .list-item {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}

@@ -1,0 +1,49 @@
+main {
+    font-family: 'Roboto', sans-serif;
+
+    & .localisation {
+        @extend %grid-center;
+        grid-template-columns: 1fr;
+        padding: 1em;
+        background: $gris-clair;
+        background: linear-gradient(180deg,
+                rgba(173, 173, 173, .35) 0%,
+                rgba(234, 234, 234, .75) 15%,
+                rgba(234, 234, 234, 1) 100%);
+
+        & i {
+            padding: 0 0.5em 0 0;
+        }
+    }
+
+    & .presentation {
+        @extend %grid-center;
+        grid-template-columns: 1fr;
+        padding: 2em 0 3em;
+        background: $back-presentation;
+        text-align: center;
+
+        & h2 {
+            padding: 0 5em;
+        }
+
+        & p {
+            padding: 1em 5em 2em;
+        }
+    }
+
+    & .commentCaMarche {
+        & h2 {
+            padding: 1.5em 1em 1em 1em;
+        }
+
+        & .list-item {
+            padding: 2em;
+            margin: 1em;
+            border-radius: 20px;
+            box-shadow: 0 5px 10px 0 rgb(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+    }
+}

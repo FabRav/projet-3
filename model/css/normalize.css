@@ -9,15 +9,20 @@ html {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 2em;
 }
 
-ul {
+ul,
+ol {
     list-style: none;
 }
 
 .stop {
     clear: both;
+}
+
+strong {
+    font-weight: normal;
 }
 
 img {
@@ -26,6 +31,12 @@ img {
 
 a {
     text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
 }
 
 br {

@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap');
+
+
+header {
+    @extend %grid-center;
+    grid-template-columns: 1fr;
+    padding: 1em;
+
+    & h1 {
+        font-family: 'Shrikhand', cursive;
+    }
+
+
+
+}
