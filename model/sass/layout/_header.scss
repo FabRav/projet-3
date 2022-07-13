@@ -10,6 +10,12 @@ header {
         font-family: 'Shrikhand', cursive;
     }
 
+    & a {
+        position: absolute;
+        left: 1em;
+    }
 
-
+    & a:active {
+        color: $violet-primaire;
+    }
 }

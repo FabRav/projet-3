@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto&family=Shrikhand&display=swap");
 .btn {
   padding: 1em 1.5em;
@@ -5,7 +6,7 @@
   transition: 250ms;
 }
 .btn--gradient {
-  background-image: radial-gradient(100% 50% at 20% 10%, #9356DC 0%, #FF79DA 200%);
+  background-image: radial-gradient(100% 50% at 20% 10%, #FF79DA 0%, #9356DC 200%);
 }
 .btn--radius {
   border-radius: 2em;
@@ -22,10 +23,49 @@
   box-shadow: 0 4px 11px rgba(0, 0, 0, 0.2);
 }
 
-main .lesRestaurants, main .commentCaMarche, main .presentation, main .localisation, header {
+.btn__like .heart-away,
+button .heart-away {
+  display: block;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.btn__like .heart-hover,
+button .heart-hover {
+  display: block;
+  position: absolute;
+  top: 0;
+  transform: scale(0);
+  transition: all 0.5s;
+  background-color: black;
+  background-image: linear-gradient(0deg, #FF79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+.btn__like:hover .heart-away,
+button:hover .heart-away {
+  opacity: 0;
+  transform: scale(0);
+}
+.btn__like:hover .heart-hover,
+button:hover .heart-hover {
+  opacity: 1;
+  transform: scale(1);
+}
+
+footer, main .menuDuResto, main .lesRestaurants, main .commentCaMarche, main .presentation, main .localisation, header {
   display: grid;
   align-items: center;
   justify-items: center;
+}
+
+main .menuDuResto h3::after {
+  border-bottom: 3px #99E2D0 solid;
+  content: "";
+  display: block;
+  width: 3rem;
 }
 
 header {
@@ -35,9 +75,17 @@ header {
 header h1 {
   font-family: "Shrikhand", cursive;
 }
+header a {
+  position: absolute;
+  left: 1em;
+}
+header a:active {
+  color: #9356DC;
+}
 
 main {
   font-family: "Roboto", sans-serif;
+  /* Début section menuDuResto */
 }
 main .localisation {
   grid-template-columns: repeat(1, 1fr);
@@ -78,12 +126,13 @@ main .commentCaMarche ol {
   grid-gap: 2em;
   margin: 1em 1em 0;
   justify-self: normal;
-  counter-reset: michel;
+  counter-reset: compteur;
 }
 main .commentCaMarche ol li p {
   display: inline-block;
   position: relative;
   left: -0.7em;
+  font-weight: bold;
 }
 main .commentCaMarche ol li p i {
   padding: 0 1em 0 0;
@@ -95,8 +144,8 @@ main .commentCaMarche ol li:hover i {
   color: #9356DC;
 }
 main .commentCaMarche ol li::before {
-  counter-increment: michel;
-  content: counter(michel);
+  counter-increment: compteur;
+  content: counter(compteur);
   position: relative;
   left: -1.9em;
   padding: 0.3em 0.6em;
@@ -117,8 +166,8 @@ main .lesRestaurants h2 {
 main .lesRestaurants ul {
   grid-row: 2 / auto;
   grid-column: 1 / 5;
-  display: grid;
   grid-template-columns: repeat(4, 1fr);
+  display: grid;
   grid-gap: 2em;
   justify-self: normal;
   margin: 1em 0;
@@ -150,4 +199,219 @@ main .lesRestaurants ul li a img {
   height: 12.5em;
   object-fit: cover;
   border-radius: 1.5em 1.5em 0 0;
+}
+main .lesRestaurants ul li a h3, main .lesRestaurants ul li a p {
+  padding: 0.2em 0.6em;
+}
+main .lesRestaurants ul li a .btn__like {
+  position: absolute;
+  bottom: 1.8rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+main .menuDuResto {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 0 0 3em;
+  justify-items: normal;
+  background: #f6f6f6;
+}
+main .menuDuResto__cover {
+  margin: 0 0 -5em 0;
+  width: 100%;
+  height: 20em;
+  object-fit: cover;
+}
+main .menuDuResto__carte {
+  padding: 2em 1em 0;
+  background: #f6f6f6;
+  border-radius: 3em 3em 0 0;
+}
+main .menuDuResto h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  margin: 0 0 1em;
+  font-family: "Shrikhand", cursive;
+  font-size: 2em;
+  display: flex;
+  justify-content: space-between;
+}
+main .menuDuResto h2 button {
+  margin: 0 0 0 2rem;
+  font-size: 1em;
+  position: relative;
+  padding-right: 1em;
+}
+main .menuDuResto h3 {
+  grid-row: 2 / auto;
+  grid-column: 1 / 4;
+  justify-self: start;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+main .menuDuResto ul {
+  grid-row: 3 / auto;
+  grid-column: 1 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1.5em;
+  margin: 1em 0 2.5em;
+  justify-self: normal;
+}
+main .menuDuResto .list-item {
+  position: relative;
+  padding: 1em;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 1.05em;
+}
+main .menuDuResto h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1em;
+}
+main .menuDuResto p {
+  font-size: 1em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 85%;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+main .menuDuResto strong {
+  position: absolute;
+  right: 2rem;
+  bottom: 1rem;
+  transition: all 0.5s;
+  font-weight: 600;
+}
+main .menuDuResto span {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 5rem;
+  height: 100%;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: #99E2D0;
+  transition: all 0.5s;
+}
+main .menuDuResto .fa-check-circle {
+  transform: rotate(-240deg);
+  transition: all 0.5s;
+}
+main .menuDuResto .list-item {
+  animation: showingDishes 1000ms forwards;
+  opacity: 0;
+}
+main .menuDuResto .list-item--1 {
+  animation-delay: 150ms;
+}
+main .menuDuResto .list-item--2 {
+  animation-delay: 300ms;
+}
+main .menuDuResto .list-item--3 {
+  animation-delay: 450ms;
+}
+main .menuDuResto .list-item--4 {
+  animation-delay: 600ms;
+}
+main .menuDuResto .list-item--5 {
+  animation-delay: 750ms;
+}
+main .menuDuResto .list-item--6 {
+  animation-delay: 900ms;
+}
+main .menuDuResto .list-item--7 {
+  animation-delay: 1050ms;
+}
+main .menuDuResto .list-item--8 {
+  animation-delay: 1200ms;
+}
+main .menuDuResto .list-item--9 {
+  animation-delay: 1350ms;
+}
+main .menuDuResto .list-item--10 {
+  animation-delay: 1500ms;
+}
+@keyframes showingDishes {
+  0% {
+    transform: translateY(2em);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+main .menuDuResto .list-item:hover p {
+  width: 67%;
+}
+main .menuDuResto .list-item:hover strong {
+  right: 6.5rem;
+}
+main .menuDuResto .list-item:hover span {
+  right: 0;
+}
+main .menuDuResto .list-item:hover span i {
+  transform: rotate(0deg);
+}
+main .menuDuResto a {
+  padding: 1em 2.5em;
+  justify-self: center;
+}
+
+@media (max-width: 992px) {
+  main .commentCaMarche ol {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  main .lesRestaurants ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  main .menuDuResto ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  main .lesRestaurants ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+footer {
+  grid-template-columns: repeat(1, 1fr);
+  padding: 1em;
+  color: #ffffff;
+  background: #353535;
+  font-family: "Roboto", sans-serif;
+}
+footer h2 {
+  grid-row: 1 / auto;
+  grid-column: 1 / auto;
+  margin: 0 0 1.5rem 0;
+  font-family: "Shrikhand", cursive;
+  font-size: 1.4em;
+  font-weight: normal;
+  justify-self: start;
+}
+footer ul {
+  grid-row: 2 / auto;
+  grid-column: 1 / 5;
+  justify-self: start;
+}
+footer ul li {
+  margin: 0 0 0.5rem 0;
+}
+footer ul .gras {
+  font-weight: 600;
+}
+footer a {
+  color: #ffffff;
+}
+footer a .fa-utensils {
+  padding: 0 1rem 0 0;
+}
+footer a .fa-hands-helping {
+  padding: 0 0.55rem 0 0;
 }
