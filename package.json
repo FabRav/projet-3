@@ -8,5 +8,8 @@
     "prefix": "postcss model/css/index.css --use autoprefixer"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "sass": "^1.54.9"
+  }
 }
